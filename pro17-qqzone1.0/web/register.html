@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+<div id="div0">
+    <div id="div_container">
+        <p class="center">用户注册</p>
+        <form th:action="@{/user.do}" method="get">
+            <input type="hidden" name="operate" value="register"/>
+            <table>
+                <tr>
+                    <th>新的账号：</th>
+                    <td><input type="text" name="registerId" value=""/></td>
+                </tr>
+                <tr>
+                    <th>昵称：</th>
+                    <td><input type="text" name="nickName" value=""/></td>
+                </tr>
+                <tr>
+                    <th>新密码：</th>
+                    <td><input type="password" name="pwd" value=""/></td>
+                </tr>
+                <tr>
+                    <th>照片存储地址：</th>
+                    <td><input type="text" name="headImg" value=""/></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="注册"/>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>
