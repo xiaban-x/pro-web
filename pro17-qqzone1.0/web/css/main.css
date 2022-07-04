@@ -1,16 +1,43 @@
+html{
+    max-height: 450px;
+}
 body{
-    background-color: #E8E8FF;
+    background-color: rgba(201, 182, 182, 0.7);
 }
 #div_topic_list{
+    height: 450px;
+    max-height: 450px;
+    overflow: auto;
     width:80%;
     margin-left:10%;
     margin-top:16px;
 }
+#div_flex{
+    display: flex;
+    flex-direction: row;
+}
+#findInfo{
+    width: 100px;
+    margin-left: 600px;
+}
+#sendTopic{
+    width: 100px;
+}
 #div_to_add{
     width:80%;
-    margin-left:10%;
+    margin-left:0;
+}
+#topicList{
+    text-align: right;
+    margin: 0 8px 0 0;
 }
 #div_to_add_friend{
     width:80%;
-    margin-left:10%;
+    margin-left:5%;
+}
+a{
+    color: #50a6cb;
+}
+a:hover{
+    color: aliceblue;
 }

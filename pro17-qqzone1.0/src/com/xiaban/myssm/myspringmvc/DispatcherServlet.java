@@ -35,7 +35,6 @@ public class DispatcherServlet extends ViewBaseServlet {
         //第二步： 通过配置文件让 hello 和 HelloController对应   ==》  fruit 和 fruitController对应
         String servletPath = req.getServletPath();//得到的是  /*.do  *是访问的对象的名字 如访问pro11/hello.do  那么servletPath就是/hello.do
         //System.out.println(servletPath);
-
         servletPath = servletPath.substring(1);
         int lastDotIndex = servletPath.lastIndexOf(".do");
 

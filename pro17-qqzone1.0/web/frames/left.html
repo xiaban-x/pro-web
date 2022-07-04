@@ -11,8 +11,9 @@
         <div id="div_to_add">
             <p id="add_friend"><a th:href="@{/page.do?operate=page&page=frames/newFriend}">添加好友</a></p>
         </div>
-        <br><br>
-        我的好友2
+        <br>
+        <div id="friend">我的好友</div>
+        <br>
         <ul>
             <li th:if="${#lists.isEmpty(session.userBasic.friendList)}">一个好友也没有</li>
             <li th:unless="${#lists.isEmpty(session.userBasic.friendList)}" th:each="friend : ${session.userBasic.friendList}" >

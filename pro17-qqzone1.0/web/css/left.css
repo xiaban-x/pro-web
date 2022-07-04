@@ -1,13 +1,24 @@
+html{
+    max-height: 450px;
+}
 body{
-    background-color: #99CC99;
+    background-color: rgba(157, 241, 160, 0.7);
+    height: 450px;
+    max-height: 450px;
+    overflow: auto;
 }
 
 #div_friendList{
+    height: 450px;
+    max-height: 450px;
+    overflow: auto;
     margin-left:48px;
     margin-top:24px;
     margin-bottom:64px;
 }
-
+#div_friendList ul{
+    margin-top: 30px;
+}
 #div_friendList li{
     margin-bottom: 8px;
 }

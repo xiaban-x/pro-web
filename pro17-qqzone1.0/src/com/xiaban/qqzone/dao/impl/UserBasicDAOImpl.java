@@ -3,6 +3,7 @@ package com.xiaban.qqzone.dao.impl;
 import com.xiaban.myssm.basedao.BaseDAO;
 import com.xiaban.qqzone.dao.UserBasicDAO;
 import com.xiaban.qqzone.pojo.UserBasic;
+import com.xiaban.qqzone.pojo.UserDetail;
 import com.xiaban.util.JDBCUtilsQQZoneDb;
 
 import java.sql.Connection;
@@ -45,9 +46,23 @@ public class UserBasicDAOImpl extends BaseDAO<UserBasic> implements UserBasicDAO
     }
 
     @Override
+    public UserBasic getUserBasicByLoginId(String loginId) {
+        Connection conn = JDBCUtilsQQZoneDb.getConn();
+        String sql = "select * from t_user_basic where loginId = ?";
+        return super.getInstance(conn,sql,loginId);
+    }
+
+    @Override
     public int addFriend(Integer fid, Integer uid) {
         Connection conn = JDBCUtilsQQZoneDb.getConn();
         String sql = "insert into t_friend values(0,?,?)";
         return super.updateDB(conn,sql,uid,fid);
+    }
+
+    @Override
+    public void changePsd(String loginId , String psd) {
+        Connection conn = JDBCUtilsQQZoneDb.getConn();
+        String sql = "update t_user_basic set pwd= ?  where loginId = ?";
+        super.updateDB(conn,sql,psd,loginId);
     }
 }

@@ -1,21 +1,109 @@
-#div0{
-    background-color: #E8E8FF;
-    border-radius: 8px;
-    width:50%;
-    margin-left:25%;
-    margin-top:140px;
+body{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+    background: rgba(95, 107, 107, 0.5) url("../imgs/y_god.png");
 }
 
-#div_container{
-    border:1px solid #e1e5ea;
-    margin-left:10%;
-    width:80%;
-    padding-bottom: 80px;
-    margin-top:64px;
-    margin-bottom:64px;
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:400px;
+    padding: 40px;
+    background:rgba(75, 81, 95, 0.5);
+    box-sizing:border-box;
+    box-shadow:7px 7px 17px rgba(52, 56, 66, 0.5);
+    border-radius: 10px;/*登录窗口边角圆滑*/
 }
-#div_container form{
-    width: 80%;
-    margin-left:10%;
-    border:0px solid red;
+.box h2
+{
+    margin:0 0 30px;
+    padding:0;
+    color:#fff;
+    text-align:center;
+}
+.box .inputBox
+{
+    position:relative;
+}
+.box .inputBox input
+{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom:30px;/*输入框设置*/
+    border:none;
+    border-bottom:1px solid #fff;
+    outline:none;
+    background:transparent;
+}
+.box .inputBox label
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label
+{
+    top: -18px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+.box  input[type="submit"]
+{
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.box  input[type="reset"]
+{
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.box  input[type="button"]
+{
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.b1
+{
+    color: white;
+    font-size: 60px;
+    font-family: "楷体", serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 50px;
+    padding: 60px;
+    text-shadow: aqua 1px 2px 1px;
+}
+a{
+    color: #50a6cb;
+}
+a:hover{
+    color: aliceblue;
 }

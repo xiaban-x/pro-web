@@ -15,11 +15,14 @@
 </head>
 <body>
 <div id="div_topic_list">
-    <div id="div_to_add" th:if="${session.userBasic.id==session.friend.id}">
-        <p class="right8"><a th:href="@{/page.do?operate=page&page=frames/newTopic}">发表新日志</a></p>
+    <div id="div_flex">
+        <div><p id="findInfo"><a th:href="@{/page.do?operate=page&page=frames/findInfo}">查看个人资料</a></p></div>
+        <div id="div_to_add" th:if="${session.userBasic.id==session.friend.id}">
+            <p id="sendTopic"><a th:href="@{/page.do?operate=page&page=frames/newTopic}">发表新日志</a></p>
+        </div>
     </div>
-    <div id="div_to_add_friend" th:unless="${session.userBasic.id==session.friend.id}">
-        <p class="right8">日志列表</p>
+    <div id="div_to_add_friend">
+        <p id="topicList">日志列表</p>
     </div>
     <table id="tbl_topic_list">
         <tr>

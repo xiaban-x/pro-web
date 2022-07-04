@@ -1,5 +1,11 @@
 body{
-    background-color: #E8E8FF;
+    background-color: rgba(201, 182, 182, 0.7);
+}
+#div_container{
+    height: 450px;
+    max-height: 450px;
+    overflow: auto;
+    margin-top:16px;
 }
 #div_topic_detail{
     width:80%;

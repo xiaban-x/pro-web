@@ -3,40 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" type="text/css" href="css/common2.css">
 </head>
 <body>
-<div id="div0">
-    <div id="div_container">
-        <p class="center">用户注册</p>
-        <form th:action="@{/user.do}" method="get">
-            <input type="hidden" name="operate" value="register"/>
-            <table>
-                <tr>
-                    <th>新的账号：</th>
-                    <td><input type="text" name="registerId" value=""/></td>
-                </tr>
-                <tr>
-                    <th>昵称：</th>
-                    <td><input type="text" name="nickName" value=""/></td>
-                </tr>
-                <tr>
-                    <th>新密码：</th>
-                    <td><input type="password" name="pwd" value=""/></td>
-                </tr>
-                <tr>
-                    <th>照片存储地址：</th>
-                    <td><input type="text" name="headImg" value=""/></td>
-                </tr>
-                <tr>
-                    <th colspan="2">
-                        <input type="submit" value="注册"/>
-                    </th>
-                </tr>
-            </table>
-        </form>
-    </div>
+<div class="box">
+    <p class="center">用户注册</p>
+    <form method="get" th:action="@{/user.do}">
+        <input name="operate" type="hidden" value="register"/>
+        <div class="inputBox">
+            <input name="registerId" type="text" value=""/>
+            <label>新的账号：</label>
+        </div>
+        <div class="inputBox">
+            <input name="nickName" type="text" value=""/>
+            <label>昵称：</label>
+        </div>
+        <div class="inputBox">
+            <input name="pwd" type="password" value=""/>
+            <label>新密码：</label>
+        </div>
+        <div class="inputBox">
+            <input name="headImg" type="text" value=""/>
+            <label>照片存储地址：</label>
+        </div>
+        <div align="center">
+            <input type="submit" value="注册"/>
+        </div>
+    </form>
 </div>
 </body>
 </html>

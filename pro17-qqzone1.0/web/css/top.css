@@ -1,5 +1,5 @@
 body{
-    background-color: #FFCCCC;
+    background-color: rgba(248, 162, 162, 0.7);
     margin:0;
     padding:0;
 }
@@ -7,7 +7,7 @@ body{
     width:100%;
     font-size:32px;
     text-align: center;
-    margin-top:8px;
+    margin-top:25px;
     height:70px;
     line-height: 70px;
 }
@@ -16,4 +16,10 @@ body{
     margin-right: 8px;
     height:24px;
     line-height: 24px;
+}
+a{
+    color: #50a6cb;
+}
+a:hover{
+    color: aliceblue;
 }

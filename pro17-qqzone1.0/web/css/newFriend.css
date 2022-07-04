@@ -1,3 +1,35 @@
 body{
-    background-color: #c04b11;
+    background-color: rgba(241, 184, 184, 0.7);
+}
+label{
+    color: #03a9f4;
+    font-size: 24px;
+}
+#div_find_friend{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin-left: 130px;
+    width: 260px;
+}
+.inputBox{
+    position: relative;
+}
+.inputBox input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom:30px;/*输入框设置*/
+    border:none;
+    border-bottom:1px solid #fff;
+    outline:none;
+    background:transparent;
+}
+a{
+    color: #50a6cb;
+}
+a:hover{
+    color: aliceblue;
 }

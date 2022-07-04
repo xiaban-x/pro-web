@@ -2,33 +2,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/newFriend.css}">
 </head>
 <body>
 <div>
-    <form th:action="@{/user.do}" method="post">
-        <input type="hidden" name="operate" value="addFriend"/>
-        <input type="hidden" name="uid" th:value="${session.userBasic.id}"/>
-<!--        <input type="hidden" name="fid" th:value="${session.friend.id}"/>-->
-        <table>
-            <tr>
-                <th style="width: 25%">ID:</th>
-                <td><textarea name="fid" rows="1"></textarea></td>
-            </tr>
-            <tr>
-                <th>名字：</th>
-                <td><textarea name="nickName" rows="1"></textarea></td>
-            </tr>
+    <div><a th:href="@{/page.do?operate=page&page=frames/left}">返回好友列表</a></div>
+    <div id="div_find_friend">
+        <form method="post" th:action="@{/user.do}">
+            <input name="operate" type="hidden" value="addFriend"/>
+            <input name="uid" th:value="${session.userBasic.id}" type="hidden"/>
+            <!--        <input type="hidden" name="fid" th:value="${session.friend.id}"/>-->
+            <div class="inputBox">
+                <label>ID:</label>
+                <input name="fid" type="text"/>
+            </div>
+            <div class="inputBox">
+                <label>名字：</label>
+                <input name="nickName" type="text"/>
+            </div>
             <p>(提示：输入其中一个即可查询到)</p>
-            <tr>
-                <th colspan="4">
-                    <input type="submit" value=" 发 送 申 请"/>
-                    <input type="reset" value=" 重 置 "/>
-                </th>
-            </tr>
-        </table>
-    </form>
+            <input type="submit" value=" 发 送 申 请"/>
+            <input type="reset" value=" 重 置 "/>
+        </form>
+    </div>
 </div>
 </body>
 </html>

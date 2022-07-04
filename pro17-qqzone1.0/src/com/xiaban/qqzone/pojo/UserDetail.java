@@ -1,6 +1,7 @@
 package com.xiaban.qqzone.pojo;
 
-import java.sql.Date;
+import java.util.Date;
+import java.time.LocalDate;
 
 public class UserDetail {
     private Integer id;
@@ -12,6 +13,24 @@ public class UserDetail {
     //子类：java.sql.Date 年月日
     //子类：java.sql.Time 时分秒
     private String star;
+    private String loginId;
+
+    public String getLoginId() {
+        return loginId;
+    }
+
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
+    }
+
+    public UserDetail(String realName, String tel, String email, Date birth, String star, String loginId) {
+        this.realName = realName;
+        this.tel = tel;
+        this.email = email;
+        this.birth = birth;
+        this.star = star;
+        this.loginId = loginId;
+    }
 
     public UserDetail() {
     }

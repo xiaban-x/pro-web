@@ -12,6 +12,7 @@
     &nbsp&nbsp&nbsp██║&nbsp&nbsp&nbsp╚██████╔╝██║&nbsp╚═╝&nbsp██║╚██████╗██║&nbsp&nbsp██║&nbsp&nbsp&nbsp██║&nbsp&nbsp&nbsp<br>
     &nbsp&nbsp&nbsp╚═╝&nbsp&nbsp&nbsp&nbsp╚═════╝&nbsp╚═╝&nbsp&nbsp&nbsp&nbsp&nbsp╚═╝&nbsp╚═════╝╚═╝&nbsp&nbsp╚═╝&nbsp&nbsp&nbsp╚═╝&nbsp&nbsp&nbsp<br>
 </div>
+
 <h1 style="text-align: center; font-size: 60px; margin-top: 50px">
     <%= application.getServerInfo() %>
     <%

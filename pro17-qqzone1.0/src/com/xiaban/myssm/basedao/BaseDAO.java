@@ -164,6 +164,10 @@ public abstract class BaseDAO<T> {
             return false;
         }else if ("java.util.Date".equals(typeName)){
             return false;
+        }else if ("java.time.LocalDate".equals(typeName)){
+            return false;
+        }else if("java.sql.Date".equals(typeName)){
+            return false;
         }
 
         return true;

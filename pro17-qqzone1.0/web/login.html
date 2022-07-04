@@ -3,34 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/common2.css">
 </head>
 <body>
-    <div id="div0">
-        <div id="div_container">
-            <p class="center">用户登录</p>
-            <form th:action="@{/user.do}" method="get">
-                <input type="hidden" name="operate" value="login"/>
-                <table>
-                    <tr>
-                        <th>用户名：</th>
-                        <td><input type="text" name="loginId" value="u001"/></td>
-                    </tr>
-                    <tr>
-                        <th>密码：</th>
-                        <td><input type="password" name="pwd" value="ok"/></td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">
-                            <input type="submit" value="登录"/>
-                            <br>
-                            <span><a th:href="@{/page.do?operate=page&page=register}">还没有账号？注册一个吧！</a></span>
-                        </th>
-                    </tr>
-                </table>
-            </form>
+<p class="b1">QQ空间</p>
+<div class="box">
+    <h2>用户登录</h2>
+    <form method="get" th:action="@{/user.do}">
+        <input name="operate" type="hidden" value="login"/>
+        <div class="inputBox">
+            <input name="loginId" type="text" value="u001"/>
+            <label>账号</label>
         </div>
-    </div>
+        <div class="inputBox">
+            <input name="pwd" type="password" value="ok"/>
+            <label>密码</label>
+        </div>
+        <div align="center">
+            <input type="submit" value="登录"/>
+            <br>
+            <span><a th:href="@{/page.do?operate=page&page=findPsw}">忘记密码了？</a></span>
+            <span><a th:href="@{/page.do?operate=page&page=register}">还没有账号？注册一个吧！</a></span>
+        </div>
+    </form>
+</div>
 </body>
 </html>

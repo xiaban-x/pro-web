@@ -73,3 +73,9 @@ table tr , table td ,table th{
     height:24px;
     line-height: 24px;
 }
+a{
+    color: #50a6cb;
+}
+a:hover{
+    color: aliceblue;
+}

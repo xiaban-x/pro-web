@@ -4,6 +4,7 @@
     <bean id="topicDAO" class="com.xiaban.qqzone.dao.impl.TopicDAOImpl"/>
     <bean id="replyDAO" class="com.xiaban.qqzone.dao.impl.ReplyDAOImpl"/>
     <bean id="hostReplyDAO" class="com.xiaban.qqzone.dao.impl.HostReplyDAOImpl"/>
+    <bean id="userDetailDAO" class="com.xiaban.qqzone.dao.impl.UserDetailDAOImpl"/>
 
     <bean id="userBasicService" class="com.xiaban.qqzone.service.impl.UserBasicServiceImpl">
         <property name="userBasicDAO" ref="userBasicDAO"/>
@@ -22,10 +23,13 @@
     <bean id="hostReplyService" class="com.xiaban.qqzone.service.impl.HostReplyServiceImpl">
         <property name="hostReplyDAO" ref="hostReplyDAO"/>
     </bean>
-
+    <bean id="userDetailService" class="com.xiaban.qqzone.service.impl.UserDetailServiceImpl">
+        <property name="userDetailDAO" ref="userDetailDAO"/>
+    </bean>
     <bean id="user" class="com.xiaban.qqzone.controller.UserController">
         <property name="userBasicService" ref="userBasicService"/>
         <property name="topicService" ref="topicService"/>
+        <property name="userDetailService" ref="userDetailService"/>
     </bean>
     <bean id="topic" class="com.xiaban.qqzone.controller.TopicController">
         <property name="topicService" ref="topicService"/>

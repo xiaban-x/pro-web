@@ -2,19 +2,26 @@ package com.xiaban.qqzone.controller;
 
 import com.xiaban.qqzone.pojo.Topic;
 import com.xiaban.qqzone.pojo.UserBasic;
+import com.xiaban.qqzone.pojo.UserDetail;
 import com.xiaban.qqzone.service.TopicService;
 import com.xiaban.qqzone.service.UserBasicService;
+import com.xiaban.qqzone.service.UserDetailService;
 
 import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class UserController {
 
     private UserBasicService userBasicService;
     private TopicService topicService;
+    private UserDetailService userDetailService;
     public String login(String loginId, String pwd, HttpServletRequest req){
 
         HttpSession session = req.getSession();
@@ -25,7 +32,15 @@ public class UserController {
             List<UserBasic> friendList = userBasicService.getFriendList(userBasic);
             //3.获得日志列表
             List<Topic> topicList = topicService.getTopicList(userBasic);
-
+            //4.获取好友个人信息
+            for (int i = 0; i < friendList.size(); i++) {
+                UserBasic friend = friendList.get(i);
+                String loginId1 = friend.getLoginId();
+                UserDetail userDetail = userDetailService.getUserDetail(loginId1);
+                friend.setUserDetail(userDetail);
+            }
+            //5.获取登录进来得账户得个人信息
+            userBasic.setUserDetail(userDetailService.getUserDetail(loginId));
             userBasic.setFriendList(friendList);
             userBasic.setTopicList(topicList);
 
@@ -107,5 +122,56 @@ public class UserController {
         //重新覆盖一下friend中的信息(为什么不覆盖userbasic中？因为left.html页面迭代的是friend这个key中的数据)
         session.setAttribute("friend",userBasic);
         return "frames/left";
+    }
+
+    public String editInfo(String nickName,Integer id,String realName,String tel,String email,String birth,String star,HttpServletRequest req) throws ParseException {
+        HttpSession session = req.getSession();
+        UserBasic userBasic = (UserBasic) session.getAttribute("userBasic");
+        //LocalDate date = LocalDate.parse(birth);
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        Date date = (Date) simpleDateFormat.parse(birth);
+        SimpleDateFormat dateFormatHiddenHour = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = dateFormatHiddenHour.parse(birth);
+        //System.out.println(date);
+        UserDetail userDetail = new UserDetail(realName,tel,email,date,star,userBasic.getLoginId());
+        userDetailService.editInfo(userDetail);
+        userBasic.setUserDetail(userDetail);
+        session.setAttribute("userBasic",userBasic);
+        return "redirect:user.do?operate=findInfo";
+    }
+
+    public String addInfo(String nickName,Integer id,String realName,String tel,String email,String birth,String star,HttpServletRequest req) throws ParseException {
+        HttpSession session = req.getSession();
+        UserBasic userBasic = (UserBasic) session.getAttribute("userBasic");
+        SimpleDateFormat dateFormatHiddenHour = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = dateFormatHiddenHour.parse(birth);
+        //System.out.println(date);
+        UserDetail userDetail = new UserDetail(realName,tel,email,date,star,userBasic.getLoginId());
+        userDetailService.addInfo(userDetail);
+        userBasic.setUserDetail(userDetail);
+        session.setAttribute("userBasic",userBasic);
+        return "redirect:user.do?operate=findInfo";
+    }
+    public String findInfo(){
+        return "frames/findInfo";
+    }
+
+    public String verifyPsd(String loginId,String realName,String email,String star,HttpServletRequest req){
+        UserBasic userBasic = userBasicService.getUserBasicByLoginId(loginId);
+        UserDetail userDetail = userDetailService.getUserDetail(loginId);
+        HttpSession session = req.getSession();
+        session.setAttribute("loginId",loginId);
+        if(userDetail == null){
+            return "verifyPsdLose";
+        }
+        if (userDetail.getRealName().equals(realName) && userDetail.getEmail().equals(email) && userDetail.getStar().equals(star)){
+            return "verifyPsdWin";
+        }else{
+            return "verifyPsdLose";
+        }
+    }
+    public String changePsd(String loginId,String pwd){
+        userBasicService.changePsd(loginId,pwd);
+        return "login";
     }
 }

@@ -2,7 +2,9 @@ package com.xiaban.qqzone.dao;
 
 import com.xiaban.qqzone.pojo.Topic;
 import com.xiaban.qqzone.pojo.UserBasic;
+import com.xiaban.qqzone.pojo.UserDetail;
 
+import java.util.Date;
 import java.util.List;
 
 public interface UserBasicDAO {
@@ -16,6 +18,10 @@ public interface UserBasicDAO {
     public UserBasic getUserBasicById(Integer id);
     //根据nickName查询UserBasic的信息
     public UserBasic getUserBasicByNickName(String nickName);
+    //根据loginId查询UserBasic的信息
+    public UserBasic getUserBasicByLoginId(String loginId);
     //根据userBasicId和friendId给userBasicId添加好友
     public int addFriend(Integer fid,Integer uid);
+    //修改密码
+    public void changePsd(String loginId,String psd);
 }
